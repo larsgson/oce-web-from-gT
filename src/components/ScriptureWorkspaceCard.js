@@ -47,17 +47,20 @@ export default function ScriptureWorkspaceCard({
   } = useContext(AppContext)
 
   const setUnsavedData = (value) => {
+    console.log("setUnsavedData() before: books is:",books)
     let _books = [...books]
     let _count = 0
-    console.log("setUnsavedData() id:", id, value)
     for (let i = 0; i < _books.length; i++) {
       if (_books[ i ].id === id) {
         _books[ i ].unsaved = value
-        setBooks(_books)
       }
       if ( _books[i]?.unsaved === true ) {
         _count++
       }
+    }
+    if (_count > 0) {
+      console.log("setUnsaveData() after: books is:",_books)
+      setBooks(_books)
     }
     sessionStorage.setItem("unsavedChanges", _count);
   }
@@ -107,7 +110,7 @@ export default function ScriptureWorkspaceCard({
   } else {
     title += ' (' + id + ')'
   }
-  console.log('owner and id:', owner, id)
+
   return (
     <Card
       title={title}
@@ -129,7 +132,6 @@ export default function ScriptureWorkspaceCard({
             onSave={ (bookCode,usfmText) => setDoSave(usfmText) }
             editable={id.endsWith(owner) ? true : false}
             onUnsavedData={setUnsavedData}
-            // hasInitialUnsavedData={data.unsaved}
             activeReference={bibleReference}
             onReferenceSelected={onReferenceSelected}
           />

@@ -32,6 +32,8 @@ export default function AppContextProvider({ children }) {
       for (let i = 0; i < _books.length; i++) {
         if (!_books[i].content) {
           let _content = null
+          _changeCount++
+          console.log("useEffect() getting content for:", _books[i].id)
           try {
             switch (_books[i].source) {
               case 'url':
@@ -93,7 +95,7 @@ export default function AppContextProvider({ children }) {
           } else {
             _books[i].usfmText = null
           }
-          books[i].showCard = true
+          _books[i].showCard = true
         }
       }
       setBooks(_books)
