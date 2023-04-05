@@ -6634,7 +6634,7 @@ __metadata:
     translation-helps-rcl: ^3.3.4-rc.3
     use-deep-compare-effect: ^1.8.1
     utf8: 3.0.0
-    uw-editor: 0.1.26-alpha2
+    uw-editor: 0.1.26
     wait-on: ^7.0.1
     zip-project: 0.0.27
   languageName: unknown
@@ -14659,10 +14659,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-uw-editor@0.1.26:
-  version "0.1.26"
-  resolved "https://registry.yarnpkg.com/uw-editor/-/uw-editor-0.1.26.tgz#7986def987981a30a95e0a1e41c88b012c4b7921"
-  integrity sha512-qbIP7TNTSP/G1mBPHE2nQAtP1B2ylcvIBwi0P8VM2ht/0w8J44qbdYWumc5xhIeclt7r9f0rfQxzO4wq3Nu5jw==
+"uw-editor@npm:0.1.26":
+  version: 0.1.26
+  resolution: "uw-editor@npm:0.1.26"
   dependencies:
     "@xelah/type-perf-html": ^1.0.2
     epitelete-html: 0.2.18
@@ -14675,7 +14674,7 @@ uw-editor@0.1.26:
     react: ^18.2.0
     react-dom: ^18.2.0
     translation-helps-rcl: 3.3.4-rc.2
-  checksum: 3102f99df19383063f141af2454e82216e9ce1d556c77a97772adf38eb19f1ba8bc9853e2e2753ea7e7d00d75ff1cdad0da4448ff0598fe93c31a248c88877a8
+  checksum: bb8d9ea656a30db6a4acf98987f22125e63e4886f9d9cf1831671c1dc0f833b796d02b72396417ae4165b5c6252c6e6d8dae96bbf7737c22a1a282cb4d570bf1
   languageName: node
   linkType: hard
 
