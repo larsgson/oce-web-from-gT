@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, createElement } from 'react'
+import { useEffect, useState, useContext, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { Card } from 'translation-helps-rcl'
 import { UsfmEditor } from 'uw-editor'
@@ -16,7 +16,6 @@ export default function ScriptureWorkspaceCard({
   classes,
   onSave: saveToWorkspace,
   onClose: removeBook,
-  isUnsaved,
 }) {
   const [doSave, setDoSave] = useState(false)
 
@@ -45,39 +44,6 @@ export default function ScriptureWorkspaceCard({
     state: { books, repoClient, ep },
     actions: { setBooks },
   } = useContext(AppContext)
-
-  const setUnsavedData = (value) => {
-    let _books = [...books]
-    const _trace = "ScriptureWorkspaceCard.js/setUnsavedData()"
-    let _count = 0 // count of unsaved items
-    let _itemChanged = false // did this card actually change the unsaved status?
-    for (let i = 0; i < _books.length; i++) {
-      if (_books[i].id === id) {
-        // found this book
-        // test to see if needs to be changed or not
-        if ( _books[i]?.unsaved === value ) {
-          // no change is needed
-          console.log(_trace+": no value change needed:", value)
-        } else {
-          _books[i].unsaved = value
-          _books[i].trace = _trace
-          console.log(_trace+": value change is needed:", value)
-          // bump the change count
-          _itemChanged = true
-        }
-      }
-      if ( _books[i]?.unsaved === true ) {
-        _count++
-      }
-    }
-    if (_itemChanged) {
-      console.log(_trace+": changes were made:")
-      setBooks(_books)
-    } else {
-      console.log(_trace+": no changes made:")
-    }
-    sessionStorage.setItem("unsavedChanges", _count);
-  }
 
   // Save Feature
   useEffect(() => {
@@ -145,9 +111,10 @@ export default function ScriptureWorkspaceCard({
             usfmText={data.usfmText}
             onSave={ (bookCode,usfmText) => setDoSave(usfmText) }
             editable={id.endsWith(owner) ? true : false}
-            onUnsavedData={setUnsavedData}
-            activeReference={bibleReference}
-            onReferenceSelected={onReferenceSelected}
+            // commenting out this code for v0.9
+            // see issue 152
+            // activeReference={bibleReference}
+            // onReferenceSelected={onReferenceSelected}
           />
         :
         (
