@@ -50,30 +50,38 @@ function ScriptureWorkspace() {
   } = useContext(AppContext)
 
   const onClose = id => {
-    console.log("[setBook() use] onClose() id=", id)
     let _books = [...books]
+    const _trace = "ScriptureWorkspace.js/onClose()"
     setIdToClose(id)
     for (let i = 0; i < _books.length; i++) {
       if (_books[i].id === id) {
         if ( _books[i].unsaved === true ) {
           // alert("Changes are unsaved, re-open book to save")
-          console.log("book has unsaved changes:", id)
+          console.log(_trace+": book has unsaved changes:", id)
           setShowModal(true)
         } else {
           _books[i].showCard = false
+          _books[i].trace = _trace
+          console.log(_trace+": book is unchanged:", id)
+          setBooks(_books)
         }
         break
       }
     }
-    setBooks(_books)
   }
 
   const removeBook = id => {
-    console.log("[setBook() use] removeBook() id=", id)
     let _books = [...books]
+    const _trace = "ScriptureWorkspace.js/removeBook()"
     for (let i = 0; i < _books.length; i++) {
       if (_books[i].id === id) {
+        // found the book... now process it and break
         _books[i].showCard = false;
+        _books[i].trace = _trace
+        console.log(_trace+": remove card (showCard=false",id)
+        setBooks(_books)
+        setShowModal(false)
+        setIdToClose(null)
         break
       }
     }
