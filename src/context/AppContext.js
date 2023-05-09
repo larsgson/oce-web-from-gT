@@ -28,7 +28,7 @@ export default function AppContextProvider({ children }) {
   useEffect(() => {
     async function getContent() {
       let _books = books
-
+      let _changeCount = 0
       for (let i = 0; i < _books.length; i++) {
         if (!_books[i].content) {
           let _content = null
@@ -97,8 +97,10 @@ export default function AppContextProvider({ children }) {
           _books[i].trace = _trace
         }
       }
-      setBooks(_books)
-      console.log('setBooks():', _books)
+      if ( _changeCount > 0 ) {
+        setBooks(_books)
+        console.log('setBooks():', _books)
+      }
       setRefresh(false)
     }
     if (refresh) {

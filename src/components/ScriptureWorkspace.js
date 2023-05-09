@@ -283,10 +283,14 @@ function ScriptureWorkspace() {
             key={data.id}
             id={data.id}
             bookId={data.bookId}
+
             docSetId={data.docset}
             data={data}
             classes={classes}
             onClose={() => onClose(data.id)}
+            // showModal={showModal}
+            // setShowModal={setShowModal}
+            // onDiscard={() => removeBook(data.id)}
           />
         ))}
       </Workspace>
