@@ -136,7 +136,7 @@ export default function ScriptureWorkspaceCard({
   //Example returning array
   const onRenderToolbar = ({items}) => [
     ...items,
-    <Grid container spacing={0} sx={{p: 0}} key='fontsettings'>
+    <Grid container spacing={0} sx={{p: 0, minWidth: 434}} key='fontsettings'>
       {fontButton}
       {fontSizeButton}
       {lineHeightButton}
