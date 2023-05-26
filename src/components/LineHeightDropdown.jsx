@@ -31,16 +31,16 @@ export default function LineHeightDropdown(lineHeightDropdownProps) {
   /** Return the Dropdown */
   return (
       <Grid item style={{ paddingTop: "0.25em", paddingBottom: "0.25em", paddingRight: "0.25em" }}>
-        <Box sx={{ minWidth: 97 }}>
-          <FormControl fullWidth style={{ maxWidth: 97 }}>
+        <Box sx={{ minWidth: 91 }}>
+          <FormControl fullWidth style={{ maxWidth: 91 }}>
             <InputLabel id="demo-simple-select-label">LineHeight</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={selectedLineHeight}
-              label="LineHeight"
+              label="Line Height"
               onChange={handleChangeLineHeight}
-              style={{fontSize: "0.95em", minHeight: 56, maxHeight: 56 }}
+              style={{fontSize: "0.87em", minHeight: 30, maxHeight: 30 }}
             >
               {LineHeights}
             </Select>

@@ -14,7 +14,7 @@ import Button from '@mui/material/Button'
 import { Grid } from "@mui/material"
 
 const CustomToolbarCloseButton = ({onClick}) => {
-  return <Button style={{maxWidth: '30px', maxHeight: '54px', minWidth: '30px', minHeight: '54px'}} sx={{fontSize: 30}} variant="contained" onClick={onClick}>×</Button>
+  return <Button style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}} sx={{fontSize: 30}} variant="contained" onClick={onClick}>×</Button>
 }
 
 export default function ScriptureWorkspaceCard({
