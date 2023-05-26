@@ -32,16 +32,16 @@ export default function FontSizeDropdown(fontSizeDropdownProps) {
   /** Return the Dropdown */
   return (
     <Grid item style={{ padding: "0.25em" }} >
-      <Box sx={{ minWidth: 86 }} >
-        <FormControl fullWidth style={{ maxWidth: 86 }} >
+      <Box sx={{ minWidth: 81 }} >
+        <FormControl fullWidth style={{ maxWidth: 81 }} >
           <InputLabel id="demo-simple-select-label">FontSize</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={selectedFontSize}
-            label="FontSize"
+            label="Font Size"
             onChange={handleChangeSize}
-            style={{fontSize: "0.95em", minHeight: 56, maxHeight: 56 }}
+            style={{fontSize: "0.87em", minHeight: 30, maxHeight: 30 }}
           >
             {FontSizes}
           </Select>
