@@ -25,7 +25,7 @@ function Home() {
       }}
     >
       <Head>
-        <title>gatewayTranslate</title>
+        <title>OCE Web</title>
         <meta name='description' content='gatewayTranslate' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
